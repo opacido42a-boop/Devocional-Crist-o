@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espaço Liminar — Devocional &amp; Salmos</title>
+<meta name="description" content="Um espaço quieto e liminar para ler os 150 Salmos, marcar como lidos, grifar com marca-texto e escrever suas reflexões.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=Space+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23e9e6dd'/><rect x='42' y='18' width='16' height='64' rx='8' fill='%23a8b8a0'/><rect x='18' y='42' width='64' height='16' rx='8' fill='%23a8b8a0'/></svg>">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="ambient-light" aria-hidden="true"></div>
+
+<header class="topbar">
+  <button class="brand" data-nav="home" aria-label="Ir para o início">
+    <span class="brand-mark">✚</span>
+    <span class="brand-text">ESPAÇO&nbsp;LIMINAR <em>devocional</em></span>
+  </button>
+  <nav class="mainnav" aria-label="Navegação principal">
+    <button data-nav="home" class="nav-btn is-active">Início</button>
+    <button data-nav="psalms" class="nav-btn">Salmos</button>
+    <button data-nav="feelings" class="nav-btn">Por sentimento</button>
+    <button data-nav="diary" class="nav-btn">Diário</button>
+  </nav>
+  <div class="progress-mini" title="Progresso de leitura dos Salmos">
+    <span class="progress-mini-label" id="progressLabel">0 / 150</span>
+    <span class="progress-mini-track"><span class="progress-mini-fill" id="progressFill"></span></span>
+  </div>
+</header>
+
+<main>
+  <!-- ══════════ INÍCIO ══════════ -->
+  <section id="view-home" class="view is-active">
+    <div class="hero">
+      <img class="hero-img" src="assets/liminal-corridor.jpg" alt="Corredor vazio e iluminado, em silêncio">
+      <div class="hero-veil"></div>
+      <div class="hero-inner">
+        <p class="mono-label">sala de espera da alma · est. no silêncio</p>
+        <h1>Um lugar quieto<br>para ficar com<br><em>a Palavra.</em></h1>
+        <p class="hero-sub">Os <strong>150 Salmos</strong>, inteiros, num espaço liminar: sem pressa, sem barulho.
+        Leia, grife com marca-texto, marque como lido e escreva o que Deus falou com você.</p>
+        <div class="hero-actions">
+          <button class="btn btn-solid" id="btnToday">✦ &nbsp;Salmo de hoje</button>
+          <button class="btn btn-ghost" data-nav="psalms">Percorrer os 150 Salmos →</button>
+        </div>
+        <p class="mono-label hero-coords">23°32′S · 46°38′W — luz fluorescente, coração aceso</p>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="today-grid">
+        <article class="card today-card" id="todayCard"><!-- JS --></article>
+        <article class="card room-card">
+          <img src="assets/liminal-room.jpg" alt="Quarto vazio com luz suave entrando pela janela">
+          <div class="room-card-body">
+            <p class="mono-label">o quarto ao lado</p>
+            <h3>Continue de onde parou</h3>
+            <p id="continueText">Você ainda não começou a travessia. A porta do Salmo 1 está aberta.</p>
+            <button class="btn btn-solid btn-sm" id="btnContinue">Continuar a leitura →</button>
+            <div class="stats-row" id="statsRow"><!-- JS --></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-head">
+        <p class="mono-label">como você está hoje?</p>
+        <h2>Entre pela porta do sentimento</h2>
+        <p class="section-sub">Cada categoria é uma salinha com os Salmos que falam àquela estação do coração — com versículos-âncora para respirar fundo.</p>
+      </div>
+      <div class="doors" id="doorsGrid"><!-- JS --></div>
+
+      <div class="section-head">
+        <p class="mono-label">os mais visitados</p>
+        <h2>Salmos clássicos, explicadinhos</h2>
+        <p class="section-sub">Os Salmos mais famosos trazem um textinho curto — <em>“em palavras simples”</em> — para entender sem complicar. Toque para ler.</p>
+      </div>
+      <div class="famous-row" id="famousRow"><!-- JS --></div>
+
+      <div class="section-head">
+        <p class="mono-label">como funciona este lugar</p>
+        <h2>Três gestos simples</h2>
+      </div>
+      <div class="how-grid">
+        <div class="card how-card">
+          <span class="how-num">01</span>
+          <h3>🎨 Grife com marca-texto</h3>
+          <p>Dentro de cada Salmo, escolha uma cor — <span class="chip-inline hl-azul">azul</span> <span class="chip-inline hl-lilas">lilás</span> <span class="chip-inline hl-verde">verde</span> <span class="chip-inline hl-amarelo">amarelo</span> — e toque num versículo para pintar. Toque de novo para apagar.</p>
+        </div>
+        <div class="card how-card">
+          <span class="how-num">02</span>
+          <h3>✓ Marque como lido</h3>
+          <p>O botão <strong>“Marcar como lido”</strong> registra sua travessia. A barra no topo mostra quantos dos 150 Salmos você já atravessou.</p>
+        </div>
+        <div class="card how-card">
+          <span class="how-num">03</span>
+          <h3>✎ Escreva a reflexão</h3>
+          <p>Ao fim de cada Salmo há um caderno em branco: <em>o que Deus falou comigo hoje?</em> Tudo fica salvo no seu navegador e reunido no <button class="linklike" data-nav="diary">Diário</button>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SALMOS ══════════ -->
+  <section id="view-psalms" class="view">
+    <div class="wrap">
+      <div class="page-head">
+        <p class="mono-label">o livro inteiro · 150 salmos · 2.461 versículos</p>
+        <h2>O corredor dos Salmos</h2>
+        <p class="section-sub">Texto integral de Salmos (Almeida Revista e Corrigida). Busque por número, palavra ou sentimento.</p>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Buscar: 23 · pastor · “nada me faltará” · medo…" autocomplete="off">
+        </label>
+        <select id="statusFilter" aria-label="Filtrar por estado de leitura">
+          <option value="todos">Todos</option>
+          <option value="lidos">✓ Lidos</option>
+          <option value="nao-lidos">Não lidos</option>
+          <option value="famosos">✦ Só os clássicos</option>
+          <option value="grifados">🎨 Com grifos</option>
+          <option value="reflexao">✎ Com reflexão</option>
+        </select>
+      </div>
+      <div class="cat-chips" id="catChips"><!-- JS --></div>
+      <p class="result-count" id="resultCount"></p>
+      <div class="psalm-grid" id="psalmGrid"><!-- JS --></div>
+      <p class="empty-msg" id="emptyMsg" hidden>Nenhuma porta por aqui… tente outra palavra ou limpe os filtros. 🌫️</p>
+    </div>
+  </section>
+
+  <!-- ══════════ LEITURA ══════════ -->
+  <section id="view-reader" class="view">
+    <div class="wrap wrap-narrow">
+      <button class="btn btn-ghost btn-sm" id="btnBack">← Voltar ao corredor</button>
+      <article id="readerBody"><!-- JS --></article>
+    </div>
+  </section>
+
+  <!-- ══════════ POR SENTIMENTO ══════════ -->
+  <section id="view-feelings" class="view">
+    <div class="wrap">
+      <div class="page-head">
+        <p class="mono-label">versículos por sentimento</p>
+        <h2>Salas por sentimento</h2>
+        <p class="section-sub">Não sabe por onde começar? Diga como está o coração — cada sala traz versículos-âncora e os Salmos que moram nela.</p>
+      </div>
+      <div id="feelingsBody"><!-- JS --></div>
+    </div>
+  </section>
+
+  <!-- ══════════ DIÁRIO ══════════ -->
+  <section id="view-diary" class="view">
+    <div class="wrap">
+      <div class="page-head">
+        <p class="mono-label">seu caderno neste lugar</p>
+        <h2>Diário</h2>
+        <p class="section-sub">Suas reflexões, seus grifos coloridos e sua travessia pelos 150 Salmos — tudo salvo só neste navegador, sem conta e sem nuvem.</p>
+      </div>
+      <div class="diary-actions">
+        <button class="btn btn-solid btn-sm" id="btnExport">⬇ Exportar diário (.md)</button>
+        <button class="btn btn-ghost btn-sm danger" id="btnClear">Apagar tudo</button>
+      </div>
+      <div id="diaryBody"><!-- JS --></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p><strong>Espaço Liminar — Devocional.</strong> Um lugar entre um Salmo e outro.</p>
+    <p class="footer-small">Texto bíblico: Livro de Salmos, Almeida Revista e Corrigida (ARC), texto integral (150 Salmos).
+    Fonte estruturada: <a href="https://github.com/thiagobodruk/bible" target="_blank" rel="noopener">thiagobodruk/bible</a> (MIT).
+    Leituras, grifos e reflexões ficam salvos apenas no seu navegador (localStorage).</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/psalms-data.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
