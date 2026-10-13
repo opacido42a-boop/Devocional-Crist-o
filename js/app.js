@@ -400,18 +400,6 @@
     }
   });
 
-  /* ── altura real da barra do topo: o marca-texto "gruda" logo abaixo dela em qualquer largura ── */
-  (function () {
-    const bar = $(".topbar");
-    if (!bar) return;
-    const sync = () => document.documentElement.style.setProperty("--topbar-h", bar.offsetHeight + "px");
-    sync();
-    if (window.ResizeObserver) new ResizeObserver(sync).observe(bar); else window.addEventListener("resize", sync);
-  })();
-
-  /* ── ponte para os módulos do player e do slideshow (js/player.js, js/slideshow.js) ── */
-  window.EspacoLiminar = { openPsalm: openPsalm, toast: toast, show: show };
-
   /* ── arranque ──────────────────────────────────────── */
   renderProgress(); renderHome(); renderCatChips();
   if (!PSALMS.length) toast("Não foi possível carregar os Salmos. Recarregue a página.");
