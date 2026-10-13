@@ -26,6 +26,15 @@ inteiro**.
   tudo reunido no **Diário**, com exportação em Markdown (`.md`).
 - **Salmo do dia** e **continuar de onde parou**.
 - Busca por número, palavra ou trecho (ex.: “nada me faltará”).
+- **Trilha ambiente** — player na barra superior com quatro trilhas
+  **generativas e originais**, sintetizadas no próprio navegador (Web Audio
+  API; nenhum arquivo de áudio): *jazz noturno*, *louvor sereno*,
+  *acústico calmo* e *sala & chuva*. Cada vez que toca, a trilha nasce com
+  outra semente, então nunca soa igual duas vezes. O som começa só com um
+  toque seu.
+- **Slideshow no Início** — imagens liminares (corredor, capela, escadaria,
+  jardim e quarto) trocando devagar, em loop contínuo. Respeita a opção
+  “reduzir movimento” do sistema.
 
 Tudo (lidos, grifos, reflexões) é salvo **apenas no navegador**
 (`localStorage`) — sem conta, sem servidor, sem nuvem.
@@ -49,5 +58,6 @@ css/styles.css      estética liminar
 js/psalms-data.js   os 150 Salmos (texto integral ARC)
 js/data.js          categorias, títulos, explicações e versículos-âncora
 js/app.js           leitura, grifos, reflexões, progresso (localStorage)
-assets/             imagens liminares (corredor e quarto vazio)
+js/ambiente.js     trilhas generativas (Web Audio), player e slideshow do Início
+assets/             imagens liminares (corredor, capela, escadaria, jardim, quarto)
 ```

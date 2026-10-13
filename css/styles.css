@@ -237,3 +237,25 @@ button.diary-item:hover{box-shadow:var(--shadow); transform:translateY(-2px)}
   .v-text{font-size:1.05rem}
   .hero-inner{padding-top:80px}
 }
+
+/* ── slideshow do início (imagens liminares que trocam devagar) ── */
+.hero-slides{position:absolute; inset:0; overflow:hidden}
+.hero-slides .hero-img{opacity:0; transition:opacity 2.6s ease}
+.hero-slides .hero-img.is-on{opacity:1}
+.hero-dots{position:absolute; right:22px; bottom:22px; z-index:2; display:flex; gap:9px}
+.hero-dots button{width:10px; height:10px; padding:0; border-radius:50%; border:1px solid var(--ink-soft);
+  background:rgba(244,242,236,.6); transition:background .4s ease, transform .4s ease}
+.hero-dots button.is-on{background:var(--sage-deep); border-color:var(--sage-deep); transform:scale(1.2)}
+
+/* ── player de trilha ambiente (barra superior) ── */
+.ambient-player{display:flex; align-items:center; gap:8px}
+.amb-btn{width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:var(--card);
+  color:var(--ink); font-size:.72rem; display:grid; place-items:center; padding:0; transition:background .3s ease}
+.amb-btn:hover{border-color:var(--ink-soft)}
+.amb-btn[aria-pressed="true"]{background:var(--sage); border-color:var(--sage-deep); color:#fff}
+.amb-btn:disabled{opacity:.4; cursor:not-allowed}
+#ambTrack{font-family:var(--sans); font-size:.8rem; font-weight:300; padding:6px 10px; border-radius:999px;
+  border:1px solid var(--line); background:var(--card); color:var(--ink); max-width:160px}
+.amb-vol{width:84px; accent-color:var(--sage-deep); cursor:pointer}
+@media (max-width:640px){ .amb-vol{width:56px} #ambTrack{max-width:130px} }
+@media (prefers-reduced-motion:reduce){ .hero-slides .hero-img{transition:none} }
